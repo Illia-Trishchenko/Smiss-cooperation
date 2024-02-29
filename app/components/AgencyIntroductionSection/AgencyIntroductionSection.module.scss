@@ -1,0 +1,129 @@
+.sectionContainer {
+  background-color: #111214;
+}
+
+.mainInfoContainer {
+  color: #fff;
+  padding-top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .textContainer {
+    max-width: 656px;
+    text-align: center;
+    animation: reveal 0.4s ease-in 0.4s backwards;
+    position: relative;
+    z-index: 100;
+    margin-bottom: 126px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .gradient {
+    background: linear-gradient(91deg, #396eb8 38.07%, #fff 106.49%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .contactContainer {
+    border-radius: 12px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+    width: 320px;
+    display: flex;
+    justify-content: center;
+    .contact {
+      display: flex;
+      justify-content: center;
+      background-color: #0f63d8;
+      color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      border: 3px solid #0b1b31;
+      cursor: pointer;
+      font-weight: 600;
+      width: 100%;
+      position: relative;
+
+      .imageContainer {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        display: none;
+        right: 36px;
+      }
+
+      &:hover {
+        .imageContainer {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .circle {
+    width: 960px;
+    height: 535px;
+    filter: blur(100px);
+    background-color: rgba(15, 99, 216, 0.2);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+
+  h2 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 64px;
+  }
+
+  p {
+    text-align: center;
+    font-weight: 500;
+    font-size: 18px;
+    color: #c6c6c6;
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
+  strong {
+    font-weight: 600;
+    color: #fff;
+  }
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 430px) {
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    bottom: -75px;
+  }
+  25% {
+    bottom: -50px;
+  }
+  50% {
+    opacity: 0.5;
+    bottom: -25px;
+  }
+  75% {
+    bottom: 0px;
+  }
+  100% {
+    opacity: 1;
+    bottom: 0px;
+  }
+}

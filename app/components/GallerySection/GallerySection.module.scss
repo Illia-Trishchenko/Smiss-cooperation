@@ -1,0 +1,18 @@
+.sectionContainer {
+  background-color: #111214;
+  .imagesContainer {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+    .imageContainer {
+      height: 244px;
+      width: 100%;
+      position: relative;
+      img {
+        border-radius: 8px;
+      }
+    }
+  }
+}
+
+

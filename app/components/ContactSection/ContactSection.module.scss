@@ -1,0 +1,238 @@
+.sectionContainer {
+  background-color: #111214;
+  color: #ffffff;
+  display: flex;
+  gap: 40px;
+  padding: 80px 100px;
+
+  .leftSideContainer {
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.03);
+    padding: 24px;
+    max-width: 600px;
+  }
+
+  .contactDetailsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    .contactInfoContainer {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 37px;
+
+      a {
+        display: block;
+      }
+    }
+
+    .contactInfo {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .imageContainer {
+      position: relative;
+      width: 120px;
+      height: 32px;
+    }
+
+    .contactDetailsHeader {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+    }
+  }
+
+  .formContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .fieldsContainer {
+    display: flex;
+    gap: 20px;
+    .fieldContainer {
+      width: 50%;
+    }
+  }
+
+  .fieldContainer {
+    color: #bdcfcc;
+
+    label {
+      font-weight: 500;
+    }
+
+    .input {
+      width: 100%;
+      padding: 13px;
+      margin-top: 8px;
+      border-radius: 8px;
+      border: 2px solid rgba(255, 255, 255, 0.02);
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      font-family: "__Manrope_dc17e1", "__Manrope_Fallback_dc17e1";
+
+      &:focus-visible {
+        outline: unset;
+      }
+
+      &::placeholder {
+        color: #ffffff;
+        opacity: 1;
+        font-weight: 400;
+        font-family: "__Manrope_dc17e1", "__Manrope_Fallback_dc17e1";
+      }
+
+      &::-ms-input-placeholder {
+        color: #ffffff;
+        font-weight: 400;
+        font-family: "__Manrope_dc17e1", "__Manrope_Fallback_dc17e1";
+      }
+    }
+  }
+  .buttonContainer {
+    border-radius: 12px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+
+    .button {
+      display: flex;
+      justify-content: center;
+      background-color: #0f63d8;
+      color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      border: 3px solid #0b1b31;
+      cursor: pointer;
+      font-weight: 600;
+      width: 100%;
+      position: relative;
+      font-size: 18px;
+      color: #fff;
+      font-weight: 600;
+
+      .imageContainer {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        display: none;
+        right: 36px;
+      }
+
+      &:disabled {
+        cursor: default;
+      }
+
+      &:hover {
+        &:not([disabled]) {
+          .imageContainer {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  .mobileViewContainer {
+    display: none;
+  }
+
+  .loader {
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+    &::after {
+      content: "";
+      display: block;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.58);
+      border-color: rgba(255, 255, 255, 0.58) transparent
+        rgba(255, 255, 255, 0.58) transparent;
+      animation: loading 1.2s linear infinite;
+    }
+  }
+
+  h2 {
+    font-size: 44px;
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+
+  h3 {
+    color: #bdcfcc;
+    font-weight: 500;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sectionContainer {
+    padding: 60px;
+    gap: 15px;
+
+    h2 {
+      font-size: 33px;
+    }
+
+    label {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 430px) {
+  .sectionContainer {
+    flex-direction: column-reverse;
+    padding: 20px;
+
+    .contactDetailsContainer {
+      h2 {
+        display: none;
+      }
+
+      img {
+        display: none;
+      }
+    }
+
+    .mobileViewContainer {
+      display: block;
+
+      h2 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 25px;
+      }
+    }
+
+    label {
+      font-size: 12px;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .sectionContainer {
+    .mobileViewContainer {
+      h2 {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
