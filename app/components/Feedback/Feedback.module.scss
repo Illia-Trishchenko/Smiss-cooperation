@@ -1,0 +1,93 @@
+.sliderContainer {
+  .feedbackContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 480px;
+    height: 597px;
+    z-index: 10;
+
+    .feedbackContentContainer {
+      padding: 0px 24px 24px 24px;
+      .authorPositionContainer {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 8px;
+
+        p {
+          max-width: 65%;
+          letter-spacing: 0.24px;
+          font-weight: 400;
+          font-size: 16px;
+        }
+        .imageContainer {
+          position: relative;
+          width: 120px;
+          height: 24px;
+          align-self: flex-end;
+        }
+      }
+
+      h2 {
+        font-weight: 800;
+        font-size: 18px;
+        margin-top: 16px;
+      }
+
+      p {
+        letter-spacing: 0.24px;
+        font-weight: 500;
+        font-size: 16px;
+      }
+    }
+
+    img {
+      z-index: -1;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+  }
+
+  .arrowImageContainer {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    bottom: -52px;
+    cursor: pointer;
+    right: 0;
+  }
+
+  .prevArrow {
+    right: 60px;
+  }
+
+  .arrowsContainer {
+    margin-top: 8px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .sliderContainer {
+    .arrowImageContainer {
+      bottom: unset;
+      right: unset;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .prevArrow {
+      left: -66px;
+    }
+
+    .nextArrow {
+      right: -99px;
+    }
+
+    .arrowsContainer {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,165 @@
+.sectionContainer {
+  font-weight: 700;
+  text-align: center;
+  padding: 80px 100px 120px 100px;
+  background-color: #111214;
+
+  .customersContainer {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .customer {
+      border-radius: 40px;
+      background-color: #1b1b1c;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+
+      .customerInfoContainer {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        .customerInfo {
+          padding: 69px 16px;
+          font-weight: 700;
+          font-size: 32px;
+          position: relative;
+          z-index: 10;
+        }
+
+        .circle {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 1;
+          background: radial-gradient(
+            50% 50% at 50% 50%,
+            #1b1b1c 71.88%,
+            rgba(27, 27, 28, 0.59) 85.94%,
+            rgba(27, 27, 28, 0.4) 100%
+          );
+        }
+      }
+
+      img {
+        object-fit: cover;
+      }
+    }
+
+    .rotated {
+      transform: rotate(12deg);
+      transform-origin: bottom right;
+    }
+  }
+
+  h2 {
+    color: #6aa4f6;
+    text-transform: uppercase;
+    align-self: center;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.48px;
+  }
+
+  p {
+    color: #c6c6c6;
+    margin-top: 80px;
+    font-size: 20px;
+    font-weight: 500;
+    padding-left: 220px;
+    padding-right: 220px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .sectionContainer {
+    .customersContainer {
+      margin-top: 96px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .sectionContainer {
+    padding: 40px 160px 60px 160px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sectionContainer {
+    padding: 10px 40px 15px 40px;
+  }
+}
+
+@media (max-width: 430px) {
+  .sectionContainer {
+    p {
+      margin-top: 40px;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .sectionContainer {
+    padding: 10px 10px 15px 10px;
+
+    h2 {
+      font-size: 14px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+}
+
+.customerContainer {
+  opacity: 0;
+  width: 30%;
+}
+
+.textContainer {
+  opacity: 0;
+}
+
+.customerBottomContainer {
+  animation: reveal 0.3s ease-in;
+  position: relative;
+  z-index: 100;
+  opacity: 1;
+}
+
+.customerTopContainer {
+  animation: reveal 0.5s ease-in;
+  position: relative;
+  z-index: 100;
+  opacity: 1;
+  margin-top: 160px;
+  margin-bottom: 4px;
+}
+
+.revealAnimationSectionContainer {
+  animation: reveal 0.5s ease-in;
+  position: relative;
+  z-index: 100;
+  opacity: 1;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -50%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

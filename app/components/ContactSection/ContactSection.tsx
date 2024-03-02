@@ -8,6 +8,7 @@ import * as yup from "yup";
 import "react-toastify/dist/ReactToastify.css";
 
 import styles from "./ContactSection.module.scss";
+import Feedback from "../Feedback";
 
 interface FormValues {
   name: string;
@@ -36,11 +37,7 @@ function ContactDetails() {
       <div className={styles.contactDetailsHeader}>
         <h2>Let’s Connect with us</h2>
         <div className={styles.imageContainer}>
-          <Image
-            src="/logo.svg"
-            alt="Logo"
-            fill
-          />
+          <Image src="/logo.svg" alt="Logo" fill />
         </div>
       </div>
 
@@ -80,7 +77,7 @@ function ContactSection() {
     values: FormValues,
     { resetForm }: FormikHelpers<FormValues>
   ) => {
-    const siteCode = "SMISS_GREENTECH"; //TODO:ass tomorrow about this code
+    const siteCode = "SMISS_GBC";
     try {
       const response = await fetch("/api/notify", {
         method: "POST",
@@ -190,10 +187,11 @@ function ContactSection() {
             </Form>
           )}
         </Formik>
+        <ToastContainer theme="colored" transition={Slide} />
       </div>
-      <div className={styles.rightSideContainer}></div>
-
-      <ToastContainer theme="colored" transition={Slide} />
+      <div className={styles.rightSideContainer}>
+        <Feedback />
+      </div>
     </div>
   );
 }

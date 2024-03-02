@@ -1,12 +1,13 @@
 .sectionContainer {
   padding: 120px 100px;
   background-color: #111214;
-
   .advantagesContainer {
     margin-top: 64px;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;
+
     .advantage {
       width: 48%;
       padding: 24px;

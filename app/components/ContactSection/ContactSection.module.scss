@@ -2,13 +2,18 @@
   background-color: #111214;
   color: #ffffff;
   display: flex;
-  gap: 40px;
   padding: 80px 100px;
+  gap: 40px;
+  justify-content: center;
 
   .leftSideContainer {
     border-radius: 20px;
     border: 2px solid rgba(255, 255, 255, 0.03);
     padding: 24px;
+    width: 80%;
+  }
+
+  .rightSideContainer {
     max-width: 600px;
   }
 
@@ -169,6 +174,17 @@
     color: #bdcfcc;
     font-weight: 500;
     font-size: 12px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .sectionContainer {
+    flex-direction: column-reverse;
+    align-items: center;
+    .leftSideContainer {
+      width: 100%;
+    }
+  
   }
 }
 
