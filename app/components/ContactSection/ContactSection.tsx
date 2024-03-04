@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import styles from "./ContactSection.module.scss";
 import Feedback from "../Feedback";
+import { contactUsSectionId } from "../../const";
 
 interface FormValues {
   name: string;
@@ -31,7 +32,7 @@ const validationSchema = yup.object({
   email: yup.string().required(),
 });
 
-function ContactDetails() {
+const ContactDetails = () => {
   return (
     <div className={styles.contactDetailsContainer}>
       <div className={styles.contactDetailsHeader}>
@@ -70,9 +71,9 @@ function ContactDetails() {
       </div>
     </div>
   );
-}
+};
 
-function ContactSection() {
+const ContactSection = () => {
   const handleSubmit = async (
     values: FormValues,
     { resetForm }: FormikHelpers<FormValues>
@@ -101,7 +102,7 @@ function ContactSection() {
   };
 
   return (
-    <div className={styles.sectionContainer} id="contact_us">
+    <div className={styles.sectionContainer} id={contactUsSectionId}>
       <div className={styles.leftSideContainer}>
         <ContactDetails />
         <Formik
@@ -187,13 +188,14 @@ function ContactSection() {
             </Form>
           )}
         </Formik>
-        <ToastContainer theme="colored" transition={Slide} />
+        <ToastContainer theme="dark" transition={Slide} />
+        <div className={styles.circle} />
       </div>
       <div className={styles.rightSideContainer}>
         <Feedback />
       </div>
     </div>
   );
-}
+};
 
 export default ContactSection;

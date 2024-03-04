@@ -11,7 +11,6 @@ export default function Home() {
     <main>
       <HeaderSection />
       <AgencyIntroductionSection />
-      <GallerySection />
       <ServicesSection />
       <CustomersSection />
       <AdvantagesSection />

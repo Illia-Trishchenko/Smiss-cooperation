@@ -8,7 +8,7 @@ interface ArrowProps {
   onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
-function NextArrow(props: ArrowProps) {
+const NextArrow = (props: ArrowProps) => {
   const { onClick } = props;
   return (
     <div
@@ -18,9 +18,9 @@ function NextArrow(props: ArrowProps) {
       <Image src="arrow-right-slider.svg" alt="Arrow right" fill />
     </div>
   );
-}
+};
 
-function PrevArrow(props: ArrowProps) {
+const PrevArrow = (props: ArrowProps) => {
   const { onClick } = props;
   return (
     <div
@@ -30,9 +30,24 @@ function PrevArrow(props: ArrowProps) {
       <Image src="arrow-left-slider.svg" alt="Arrow left" fill />
     </div>
   );
-}
+};
 
-function Feedback() {
+const Feedback = () => {
+  const [width, setWidth] = React.useState<number>(window.innerWidth);
+
+  function handleWindowSizeChange() {
+    setWidth(window.innerWidth);
+  }
+
+  React.useEffect(() => {
+    window.addEventListener("resize", handleWindowSizeChange);
+    return () => {
+      window.removeEventListener("resize", handleWindowSizeChange);
+    };
+  }, []);
+
+  const isMobile = width <= 430;
+
   const feedbacks = [
     {
       id: 1,
@@ -66,9 +81,9 @@ function Feedback() {
   ];
 
   const settings = {
-    centerMode: true,
+    centerMode: !isMobile && true,
     infinite: true,
-    centerPadding: "55px",
+    centerPadding: "45px",
     slidesToShow: 1,
     speed: 400,
     nextArrow: <NextArrow />,
@@ -99,6 +114,6 @@ function Feedback() {
       <div className={styles.arrowsContainer} />
     </div>
   );
-}
+};
 
 export default Feedback;

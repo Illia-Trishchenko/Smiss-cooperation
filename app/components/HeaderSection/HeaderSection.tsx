@@ -2,13 +2,21 @@
 import * as React from "react";
 import Image from "next/image";
 
+import {
+  advantagesSectionId,
+  contactUsSectionId,
+  domainsSectionId,
+  servicesSectionId,
+} from "../../const";
+
 import styles from "./HeaderSection.module.scss";
 
-function HeaderSection() {
+const HeaderSection = () => {
   const scrollToContactUsSection = (
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    id: string
   ) => {
-    const contactUs = document.getElementById("contact_us");
+    const contactUs = document.getElementById(id);
     e.preventDefault();
     contactUs?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
@@ -25,18 +33,27 @@ function HeaderSection() {
           />
         </div>
         <div className={styles.navigationContainer}>
-          <a onClick={scrollToContactUsSection}>Services</a>
-          <a onClick={scrollToContactUsSection}>Domains</a>
-          <a onClick={scrollToContactUsSection}>Advantages</a>
+          <a onClick={(e) => scrollToContactUsSection(e, servicesSectionId)}>
+            Services
+          </a>
+          <a onClick={(e) => scrollToContactUsSection(e, domainsSectionId)}>
+            Domains
+          </a>
+          <a onClick={(e) => scrollToContactUsSection(e, advantagesSectionId)}>
+            Advantages
+          </a>
         </div>
         <div className={styles.contactContainer}>
-          <a className={styles.contact} onClick={scrollToContactUsSection}>
+          <a
+            className={styles.contact}
+            onClick={(e) => scrollToContactUsSection(e, contactUsSectionId)}
+          >
             Get in touch
           </a>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default HeaderSection;

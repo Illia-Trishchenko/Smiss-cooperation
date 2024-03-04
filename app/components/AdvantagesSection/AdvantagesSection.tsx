@@ -2,8 +2,10 @@
 import React from "react";
 import Image from "next/image";
 
+import useIntersection from "../../hooks/useIntersection";
+import { advantagesSectionId } from "../../const";
+
 import styles from "./AdvantagesSection.module.scss";
-import useIntersection from "@/app/hooks/useIntersection";
 
 const AdvantageCard = ({
   title,
@@ -59,11 +61,10 @@ const AdvantagesSection = () => {
     },
   ];
 
-  const smissAdvantagesSectionId = "smissAdvantagesSection";
-  const isVisible = useIntersection(smissAdvantagesSectionId);
+  const isVisible = useIntersection(advantagesSectionId);
 
   return (
-    <div className={styles.sectionContainer} id={smissAdvantagesSectionId}>
+    <div className={styles.sectionContainer} id={advantagesSectionId}>
       <div
         className={` ${styles.contentContainer} ${
           isVisible && styles.revealAnimationSectionContainer
@@ -76,7 +77,7 @@ const AdvantagesSection = () => {
           ))}
         </div>
 
-        <div className={styles.circle}/>
+        <div className={styles.circle} />
       </div>
     </div>
   );

@@ -1,5 +1,7 @@
 import React from "react";
 
+import { servicesSectionId } from "../../const";
+
 import styles from "./ServicesSection.module.scss";
 
 const VerticalMarquee = ({ children }: { children: React.JSX.Element[] }) => {
@@ -28,7 +30,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <div className={styles.sectionContainer}>
+    <div className={styles.sectionContainer} id={servicesSectionId}>
       <div className={styles.contentContainer}>
         <h2>What services do we provide? </h2>
         <p>

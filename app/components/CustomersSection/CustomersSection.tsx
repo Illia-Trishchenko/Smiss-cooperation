@@ -1,9 +1,11 @@
 "use client";
 import React from "react";
+import Image from "next/image";
+
+import useIntersection from "../../hooks/useIntersection";
+import { domainsSectionId } from "../../const";
 
 import styles from "./CustomersSection.module.scss";
-import Image from "next/image";
-import useIntersection from "@/app/hooks/useIntersection";
 
 const customersBottom = [
   { text: "E-Commerce" },
@@ -40,11 +42,10 @@ const CustomerItem = ({
 };
 
 const CustomersSection = () => {
-  const smissCustomersSectionId = "smissCustomersSection";
-  const isVisible = useIntersection(smissCustomersSectionId);
+  const isVisible = useIntersection(domainsSectionId);
 
   return (
-    <div className={styles.sectionContainer} id={smissCustomersSectionId}>
+    <div className={styles.sectionContainer} id={domainsSectionId}>
       <div
         className={`${styles.textContainer} ${
           isVisible && styles.revealAnimationSectionContainer

@@ -1,10 +1,12 @@
 .sectionContainer {
   background-color: #111214;
+  position: relative;
 }
 
 .mainInfoContainer {
   color: #fff;
   padding-top: 120px;
+  padding-bottom: 126px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,14 +14,18 @@
   .textContainer {
     max-width: 656px;
     text-align: center;
-    animation: reveal 0.4s ease-in 0.4s backwards;
     position: relative;
     z-index: 100;
-    margin-bottom: 126px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    opacity: 0;
+  }
+
+  .textContainerAnimation {
+    animation: reveal 0.4s ease-in 0.4s backwards;
+    opacity: 1;
   }
 
   .gradient {
@@ -27,6 +33,7 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    letter-spacing: 2.88px;
   }
 
   .contactContainer {
@@ -67,19 +74,6 @@
     }
   }
 
-  .circle {
-    width: 960px;
-    height: 535px;
-    filter: blur(100px);
-    background-color: rgba(15, 99, 216, 0.2);
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-  }
-
   h2 {
     text-align: center;
     font-weight: 700;
@@ -101,10 +95,27 @@
   }
 }
 
-@media (max-width: 768px) {
+.circle {
+  width: 960px;
+  height: 535px;
+  filter: blur(200px);
+  background-color: rgba(15, 99, 216, 0.2);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
 }
 
 @media (max-width: 430px) {
+  .mainInfoContainer {
+    padding: 30px 10px 30px 10px;
+
+    h2 {
+      font-size: 40px;
+    }
+  }
 }
 
 @keyframes reveal {
