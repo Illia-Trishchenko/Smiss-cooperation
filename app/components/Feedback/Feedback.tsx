@@ -83,7 +83,7 @@ const Feedback = () => {
   const settings = {
     centerMode: !isMobile && true,
     infinite: true,
-    centerPadding: "45px",
+    centerPadding: "55px",
     slidesToShow: 1,
     speed: 400,
     nextArrow: <NextArrow />,
