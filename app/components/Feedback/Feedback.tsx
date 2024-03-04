@@ -33,7 +33,7 @@ const PrevArrow = (props: ArrowProps) => {
 };
 
 const Feedback = () => {
-  const [width, setWidth] = React.useState<number>(window.innerWidth);
+  const [width, setWidth] = React.useState<number | null>(null);
 
   function handleWindowSizeChange() {
     setWidth(window.innerWidth);
@@ -46,7 +46,7 @@ const Feedback = () => {
     };
   }, []);
 
-  const isMobile = width <= 430;
+  const isMobile = width && width <= 430;
 
   const feedbacks = [
     {
