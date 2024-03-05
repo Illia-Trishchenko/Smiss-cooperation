@@ -146,7 +146,9 @@ const ContactSection = () => {
                     aria-label="Name"
                     name="name"
                     onChange={handleChange}
-                    className={styles.input}
+                    className={`${styles.input} ${
+                      errors.name && touched.name && styles.inputWithError
+                    } }`}
                     value={values.name}
                   />
                   {errors.name && touched.name && (
@@ -162,7 +164,11 @@ const ContactSection = () => {
                     aria-label="companyName"
                     name="companyName"
                     onChange={handleChange}
-                    className={styles.input}
+                    className={`${styles.input} ${
+                      errors.companyName &&
+                      touched.companyName &&
+                      styles.inputWithError
+                    } }`}
                     value={values.companyName}
                   />
                   {errors.companyName && touched.companyName && (
@@ -180,7 +186,11 @@ const ContactSection = () => {
                   aria-label="phoneNumber"
                   name="phoneNumber"
                   onChange={handleChange}
-                  className={styles.input}
+                  className={`${styles.input} ${
+                    errors.phoneNumber &&
+                    touched.phoneNumber &&
+                    styles.inputWithError
+                  } }`}
                   value={values.phoneNumber}
                 />
                 {errors.phoneNumber && touched.phoneNumber && (
@@ -196,7 +206,9 @@ const ContactSection = () => {
                   aria-label="email"
                   name="email"
                   onChange={handleChange}
-                  className={styles.input}
+                  className={`${styles.input} ${
+                    errors.email && touched.email && styles.inputWithError
+                  } }`}
                   value={values.email}
                 />
                 {errors.email && touched.email && (
