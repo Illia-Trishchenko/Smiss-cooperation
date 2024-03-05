@@ -6,6 +6,7 @@
     width: 100%;
     gap: 8px;
     position: relative;
+    opacity: 0;
 
     .imageContainer {
       height: 244px;
@@ -30,6 +31,11 @@
       content: "";
     }
   }
+
+  .imagesContainerAnimation {
+    animation: reveal 0.4s ease-in 0.4s backwards;
+    opacity: 1;
+  }
 }
 
 @media (max-width: 768px) {
@@ -40,5 +46,27 @@
         height: unset;
       }
     }
+  }
+}
+
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    bottom: -75px;
+  }
+  25% {
+    bottom: -50px;
+  }
+  50% {
+    opacity: 0.5;
+    bottom: -25px;
+  }
+  75% {
+    bottom: 0px;
+  }
+  100% {
+    opacity: 1;
+    bottom: 0px;
   }
 }

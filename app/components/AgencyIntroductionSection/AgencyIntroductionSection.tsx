@@ -62,7 +62,7 @@ const AgencyIntroductionSection = () => {
         </div>
         <div className={styles.circle} />
       </div>
-      <GallerySection setLoaded={setLoaded} />
+      <GallerySection setLoaded={setLoaded} isLoaded={isLoaded} />
     </React.Fragment>
   );
 };
