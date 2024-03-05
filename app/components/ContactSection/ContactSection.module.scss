@@ -70,8 +70,15 @@
   .fieldContainer {
     color: #bdcfcc;
 
-    label {
-      font-weight: 500;
+    .errorContainer {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 12px;
+      color: #f97179;
+      font-size: 12px;
+      line-height: 18px;
+      letter-spacing: 0px;
     }
 
     .input {
@@ -100,6 +107,10 @@
         font-weight: 400;
         font-family: "__Manrope_dc17e1", "__Manrope_Fallback_dc17e1";
       }
+
+      label {
+        font-weight: 500;
+      }
     }
   }
   .buttonContainer {
@@ -111,6 +122,7 @@
     .button {
       display: flex;
       justify-content: center;
+      align-items: center;
       background-color: #0f63d8;
       color: #fff;
       padding: 20px;
@@ -119,19 +131,23 @@
       cursor: pointer;
       font-weight: 600;
       width: 100%;
-      position: relative;
       font-size: 18px;
       color: #fff;
       font-weight: 600;
+      .buttonText {
+        position: relative;
+        max-height: 20px;
+      }
 
       .imageContainer {
         position: absolute;
         width: 24px;
         height: 24px;
         display: none;
+        position: absolute;
         top: 50%;
-        left: 65%;
-        transform: translate(-50%, -50%);
+        right: -36px;
+        transform: translate(0, -50%);
       }
 
       &:disabled {
@@ -238,6 +254,13 @@
     }
     label {
       font-size: 12px;
+    }
+
+    .fieldsContainer {
+      flex-wrap: wrap;
+      .fieldContainer {
+        width: 100%;
+      }
     }
   }
 }

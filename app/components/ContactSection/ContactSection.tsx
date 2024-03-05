@@ -4,12 +4,11 @@ import React from "react";
 import { Formik, Form, FormikHelpers } from "formik";
 import { Slide, ToastContainer, toast } from "react-toastify";
 import * as yup from "yup";
-
+import dynamic from "next/dynamic";
 import "react-toastify/dist/ReactToastify.css";
+import { contactUsSectionId } from "../../const";
 
 import styles from "./ContactSection.module.scss";
-import Feedback from "../Feedback";
-import { contactUsSectionId } from "../../const";
 
 interface FormValues {
   name: string;
@@ -25,11 +24,27 @@ const initialValues: FormValues = {
   email: "",
 };
 
+const Feedback = dynamic(
+  () => {
+    return import("../Feedback");
+  },
+  { ssr: false }
+);
+
 const validationSchema = yup.object({
-  name: yup.string().required(),
-  companyName: yup.string().required(),
-  phoneNumber: yup.string().required(),
-  email: yup.string().required(),
+  name: yup.string().required("Please enter your name"),
+  companyName: yup.string().required("Please enter your company name"),
+  phoneNumber: yup
+    .string()
+    .required("Please enter your phone number")
+    .matches(/^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g, {
+      message: "Please enter valid number",
+      excludeEmptyString: true,
+    }),
+  email: yup
+    .string()
+    .required("Please enter your email")
+    .email("Please enter valid email"),
 });
 
 const ContactDetails = () => {
@@ -73,6 +88,15 @@ const ContactDetails = () => {
   );
 };
 
+const InputError = ({ errorText }: { errorText: string }) => {
+  return (
+    <div className={styles.errorContainer}>
+      <Image src="/warning.svg" alt="Warning image" width={12} height={12} />
+      <span>{errorText}</span>
+    </div>
+  );
+};
+
 const ContactSection = () => {
   const handleSubmit = async (
     values: FormValues,
@@ -109,9 +133,8 @@ const ContactSection = () => {
           initialValues={initialValues}
           validationSchema={validationSchema}
           onSubmit={handleSubmit}
-          initialErrors={initialValues}
         >
-          {({ isValid, isSubmitting, values, handleChange }) => (
+          {({ isSubmitting, values, errors, touched, handleChange }) => (
             <Form className={styles.formContainer}>
               <div className={styles.fieldsContainer}>
                 <div className={styles.fieldContainer}>
@@ -126,6 +149,9 @@ const ContactSection = () => {
                     className={styles.input}
                     value={values.name}
                   />
+                  {errors.name && touched.name && (
+                    <InputError errorText={errors.name} />
+                  )}
                 </div>
                 <div className={styles.fieldContainer}>
                   <label htmlFor="companyName">Company Name</label>
@@ -139,6 +165,9 @@ const ContactSection = () => {
                     className={styles.input}
                     value={values.companyName}
                   />
+                  {errors.companyName && touched.companyName && (
+                    <InputError errorText={errors.companyName} />
+                  )}
                 </div>
               </div>
 
@@ -154,6 +183,9 @@ const ContactSection = () => {
                   className={styles.input}
                   value={values.phoneNumber}
                 />
+                {errors.phoneNumber && touched.phoneNumber && (
+                  <InputError errorText={errors.phoneNumber} />
+                )}
               </div>
               <div className={styles.fieldContainer}>
                 <label htmlFor="email">Email</label>
@@ -167,21 +199,33 @@ const ContactSection = () => {
                   className={styles.input}
                   value={values.email}
                 />
+                {errors.email && touched.email && (
+                  <InputError errorText={errors.email} />
+                )}
               </div>
               <div className={styles.buttonContainer}>
                 <button
                   type="submit"
-                  disabled={!isValid || isSubmitting}
+                  disabled={isSubmitting}
                   className={styles.button}
                 >
-                  {isSubmitting ? <div className={styles.loader} /> : "Submit"}
-                  <div className={styles.imageContainer}>
-                    <Image
-                      src="/arrow-right-circle.svg"
-                      alt="Contact us image"
-                      fill
-                      style={{ objectFit: "cover" }}
-                    />
+                  <div className={styles.buttonText}>
+                    {isSubmitting ? (
+                      <div className={styles.loader} />
+                    ) : (
+                      "Submit"
+                    )}
+
+                    {!isSubmitting && (
+                      <div className={styles.imageContainer}>
+                        <Image
+                          src="/arrow-right-circle.svg"
+                          alt="Contact us image"
+                          fill
+                          style={{ objectFit: "cover" }}
+                        />
+                      </div>
+                    )}
                   </div>
                 </button>
               </div>
