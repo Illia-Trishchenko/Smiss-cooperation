@@ -38,7 +38,11 @@ const AgencyIntroductionSection = () => {
               <strong>dedicated teams</strong> for you internal needs
             </p>
             <div className={styles.contactContainer}>
-              <a className={styles.contact} onClick={scrollToContactUsSection}>
+              <a
+                href="#"
+                className={styles.contact}
+                onClick={scrollToContactUsSection}
+              >
                 Get in touch with us
                 <div className={styles.imageContainer}>
                   <Image

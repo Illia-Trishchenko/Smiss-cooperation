@@ -16,7 +16,7 @@ const VerticalMarquee = ({ children }: { children: React.JSX.Element[] }) => {
 };
 
 const ServiceListItem = ({ children }: { children: string }) => {
-  return <li>{children}</li>;
+  return <div className={styles.serviceItem}>{children}</div>;
 };
 
 const ServicesSection = () => {
@@ -38,13 +38,13 @@ const ServicesSection = () => {
           operations, enhance customer service, and streamline business
           processes through automation. Here are some of the services we offer:
         </p>
-        <ul className={styles.servicesListContainer}>
+        <div className={styles.servicesListContainer}>
           <VerticalMarquee>
             {services.map((service) => (
               <ServiceListItem key={service}>{service}</ServiceListItem>
             ))}
           </VerticalMarquee>
-        </ul>
+        </div>
       </div>
     </div>
   );

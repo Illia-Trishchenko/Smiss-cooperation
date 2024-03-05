@@ -33,18 +33,28 @@ const HeaderSection = () => {
           />
         </div>
         <div className={styles.navigationContainer}>
-          <a onClick={(e) => scrollToContactUsSection(e, servicesSectionId)}>
+          <a
+            href={`#${servicesSectionId}`}
+            onClick={(e) => scrollToContactUsSection(e, servicesSectionId)}
+          >
             Services
           </a>
-          <a onClick={(e) => scrollToContactUsSection(e, domainsSectionId)}>
+          <a
+            href={`#${domainsSectionId}`}
+            onClick={(e) => scrollToContactUsSection(e, domainsSectionId)}
+          >
             Domains
           </a>
-          <a onClick={(e) => scrollToContactUsSection(e, advantagesSectionId)}>
+          <a
+            href={`#${advantagesSectionId}`}
+            onClick={(e) => scrollToContactUsSection(e, advantagesSectionId)}
+          >
             Advantages
           </a>
         </div>
         <div className={styles.contactContainer}>
           <a
+            href={`#${contactUsSectionId}`}
             className={styles.contact}
             onClick={(e) => scrollToContactUsSection(e, contactUsSectionId)}
           >
