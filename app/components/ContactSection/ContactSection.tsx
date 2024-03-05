@@ -221,12 +221,14 @@ const ContactSection = () => {
                   disabled={isSubmitting}
                   className={styles.button}
                 >
-                  <div className={styles.buttonText}>
-                    {isSubmitting ? (
-                      <div className={styles.loader} />
-                    ) : (
-                      "Submit"
-                    )}
+                  <div className={styles.buttonContent}>
+                    <div className={styles.buttonText}>
+                      {isSubmitting ? (
+                        <div className={styles.loader} />
+                      ) : (
+                        "Submit"
+                      )}
+                    </div>
 
                     {!isSubmitting && (
                       <div className={styles.imageContainer}>

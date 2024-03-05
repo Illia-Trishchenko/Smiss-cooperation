@@ -91,6 +91,10 @@
       color: #ffffff;
       font-family: "__Manrope_dc17e1", "__Manrope_Fallback_dc17e1";
 
+      &:focus {
+        border: 2px solid rgba(255, 255, 255, 0.2);
+      }
+
       &:focus-visible {
         outline: unset;
       }
@@ -138,20 +142,32 @@
       font-size: 18px;
       color: #fff;
       font-weight: 600;
-      .buttonText {
+      position: relative;
+      height: 65px;
+
+      .buttonContent {
         position: relative;
-        max-height: 20px;
+      }
+
+      .buttonText {
+        position: absolute;
+        max-height: 24px;
+        font-family: "__Manrope_dc17e1", "__Manrope_Fallback_dc17e1";
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: ease-in 0.2s;
       }
 
       .imageContainer {
         position: absolute;
         width: 24px;
         height: 24px;
-        display: none;
-        position: absolute;
+        opacity: 0;
         top: 50%;
-        right: -36px;
+        right: -55px;
         transform: translate(0, -50%);
+        transition: opacity 0.3s ease-in;
       }
 
       &:disabled {
@@ -160,8 +176,15 @@
 
       &:hover {
         &:not([disabled]) {
+          .buttonText {
+            transform: translate(-70%, -50%);
+            -webkit-transition: ease-in 0.2s;
+            transition: ease-in 0.2s;
+          }
+
           .imageContainer {
-            display: block;
+            opacity: 1;
+            transition: unset;
           }
         }
       }
@@ -291,5 +314,16 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-35px);
   }
 }

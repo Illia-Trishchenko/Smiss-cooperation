@@ -10,7 +10,7 @@ const AgencyIntroductionSection = () => {
   const [isLoaded, setLoaded] = React.useState(false);
 
   const scrollToContactUsSection = (
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement, MouseEvent>
   ) => {
     const contactUs = document.getElementById(contactUsSectionId);
     e.preventDefault();
@@ -37,22 +37,25 @@ const AgencyIntroductionSection = () => {
               <strong>software development </strong>, as well as providing{" "}
               <strong>dedicated teams</strong> for you internal needs
             </p>
-            <div className={styles.contactContainer}>
-              <a
-                href="#"
-                className={styles.contact}
+
+            <div className={styles.buttonContainer}>
+              <button
+                type="button"
+                className={styles.button}
                 onClick={scrollToContactUsSection}
               >
-                Get in touch with us
-                <div className={styles.imageContainer}>
-                  <Image
-                    src="/arrow-right-circle.svg"
-                    alt="Contact us image"
-                    fill
-                    style={{ objectFit: "cover" }}
-                  />
+                <div className={styles.buttonContent}>
+                  <div className={styles.buttonText}>Get in touch with us</div>
+                  <div className={styles.imageContainer}>
+                    <Image
+                      src="/arrow-right-circle.svg"
+                      alt="Contact us image"
+                      fill
+                      style={{ objectFit: "cover" }}
+                    />
+                  </div>
                 </div>
-              </a>
+              </button>
             </div>
           </div>
         </div>
